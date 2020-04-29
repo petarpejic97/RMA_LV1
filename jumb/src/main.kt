@@ -29,5 +29,7 @@ fun main(){
         }
     }while(response!="y" && response != "n")
 
-    gameController.provjeriUspjeh()
+    var provjeraRezultata = ProvjeraRezultata(gameController.kocke)
+
+    provjeraRezultata.provjeriUspjeh()
 }
