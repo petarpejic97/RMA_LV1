@@ -1,20 +1,20 @@
 fun main(){
 
     println("Upišite svoje ime: ")
-    var playerName = readLine()
+    val playerName = readLine()
 
-    var gameController = GameController("$playerName")
+    val gameController = GameController("$playerName")
 
     gameController.computerPlay()
 
-    if(gameController.checkComputerResult() == "over"){
-        println("REZULTAT: $playerName je pobijednik. Računalo ima preko 21")
-        gameController.compCards()
+    if(gameController.margin21 == "over"){
+        gameController.resultChecker.computerOver("$playerName")
+        gameController.printComputerCards()
     }
     else{
         gameController.youPlay()
         println("====================")
-        gameController.getResult()
-        gameController.determineWinner()
+        gameController.resultChecker.getResult()
+        gameController.resultChecker.determineWinner()
     }
 }

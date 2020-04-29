@@ -1,65 +1,16 @@
-class Card {
+enum class Card ( val cardName : String, val value : Int){
 
-    var name : String ="card"
-    var value : Int = 0
-    var random : Int =(2..13).random()
-
-    init{
-        when(random){
-            2 -> {
-                name = "TWO"
-                value = 2
-            }
-            3 ->{
-                name = "THREE"
-                value = 3
-            }
-            4 -> {
-                    name = "FOUR"
-                    value = 4
-                }
-            5 -> {
-                name = "FIVE"
-                value = 5
-            }
-            6 -> {
-                name = "SIX"
-                value = 6
-            }
-            7 -> {
-                name = "SEVEN"
-                value = 7
-            }
-            8 -> {
-                name = "EIGHT"
-                value = 8
-            }
-            9 -> {
-                name = "NINE"
-                value = 9
-            }
-            10 -> {
-                name = "TEN"
-                value = 10
-            }
-            11 -> {
-                name = "JACK"
-                value = 10
-            }
-            12 -> {
-                name = "QUEEN"
-                value = 10
-            }
-            13 -> {
-                name = "KING"
-                value = 10
-            }
-            14 -> {
-                name = "ACE"
-                value = 11
-            }
-        }
-
-    }
-
+    TWO("TWO",2),
+    THREE("THREE",3),
+    FOUR("FOUR",4),
+    FIVE("FIVE",5),
+    SIX("SIX",6),
+    SEVEN("SEVEN",7),
+    EIGHT("EIGHT",8),
+    NINE("NINE",9),
+    TEN("TEN",10),
+    JACK("JACK",10),
+    QUEEN("QUEEN",10),
+    KING("KING",10),
+    ACE("ACE",11)
 }
