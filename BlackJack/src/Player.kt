@@ -15,7 +15,7 @@ class Player(name:String) {
 
         if(card1.cardName == "ACE" && card2.cardName == "ACE"){
             cards.add("ACE")
-            result = card1.value + 1
+            result += 1
         }
         else{
             cards.add(card2.cardName)
