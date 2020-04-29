@@ -1,7 +1,7 @@
+import com.sun.org.apache.xpath.internal.operations.Bool
 
-class ProvjeraRezultata(kocke: Array<Kocka>) {
-    
-    private var kocke = kocke;
+class ProvjeraRezultata(private var kocke: Array<Kocka>) {
+
     var jumb =false
     var poker =false
     var skala =false
@@ -15,34 +15,14 @@ class ProvjeraRezultata(kocke: Array<Kocka>) {
 
         ispisiRezultat()
     }
-    fun provjeriJumb() : Boolean{
-        for(i in 1 until 6){
-            var brojac=0
-            for(kocka in kocke)
-                if(kocka.broj == i){
-                    brojac++
-                }
-            if(brojac == 5){
-                return true;
-            }
-        }
-        return false
+    fun provjeriJumb() : Boolean {
+        return kocke.groupingBy { it.broj }.eachCount().any { it.value > 4 }
     }
-    fun provjeriPoker() : Boolean{
-        for(i in 1 until 6){
-            var brojac=0
-            for(kocka in kocke)
-                if(kocka.broj == i){
-                    brojac++
-                }
-            if(brojac == 4){
-                return true;
-            }
-        }
-        return false
+    fun provjeriPoker() : Boolean {
+        return kocke.groupingBy { it.broj }.eachCount().any { it.value == 4 }
     }
     fun provjeriSkalu() : Boolean{
-        val listaDobivenihKocki : MutableList<Int> = mutableListOf<Int>();
+        val listaDobivenihKocki : MutableList<Int> = mutableListOf<Int>()
 
         for(kocka in kocke){
             listaDobivenihKocki.add(kocka.broj)
@@ -51,10 +31,7 @@ class ProvjeraRezultata(kocke: Array<Kocka>) {
 
         val visaSkala= listOf<Int>(2,3,4,5,6)
 
-        if(listaDobivenihKocki.containsAll(nizaSkala))
-            return true
-
-        if(listaDobivenihKocki.containsAll(visaSkala))
+        if(listaDobivenihKocki.containsAll(nizaSkala) || listaDobivenihKocki.containsAll(visaSkala))
             return true
 
         return false

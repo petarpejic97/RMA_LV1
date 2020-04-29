@@ -13,23 +13,22 @@ fun main(){
         if(response =="y"){
 
             println("Unesite koliko kockica želite zaključati: ")
-            val brojZakljucanih : Int = readLine()!!.toInt()
 
-            for(i in 1 until brojZakljucanih+1){
+            gameController.brojZakljucanih = readLine()!!.toInt()
+
+            for(i in 1 until gameController.brojZakljucanih+1){
 
                 println("Unesite koju želite zaključati:")
                 val brojkocke : Int = readLine()!!.toInt()
-                gameController.zakljucaj(brojkocke);
+                gameController.zakljucaj(brojkocke)
             }
             println("Zaključavanje završeno.")
             println("Ponovno vrtimo nezaključane")
-            gameController.zavrtiNezakljucane();
+            gameController.zavrtiNezakljucane()
             gameController.ispisiKocke()
 
         }
     }while(response!="y" && response != "n")
 
-    var provjeraRezultata = ProvjeraRezultata(gameController.kocke)
-
-    provjeraRezultata.provjeriUspjeh()
+    gameController.provjeraRezultata.provjeriUspjeh()
 }

@@ -1,5 +1,10 @@
 class GameController {
-    var kocke = Array(6) { Kocka() }
+    val kocke = Array(6) { Kocka() }
+
+    val provjeraRezultata = ProvjeraRezultata(kocke)
+
+    var brojZakljucanih : Int =0
+
     init{
         println("Igra započinje. Kocke se bacaju.")
     }
@@ -12,11 +17,11 @@ class GameController {
     }
 
     fun zakljucaj(broj:Int){
-        kocke[broj].zakljucano=true;
+        kocke[broj].zakljucano=true
     }
     fun zavrtiNezakljucane(){
         for(kocka in kocke){
-            if(kocka.zakljucano == false){
+            if(!kocka.zakljucano){
                 kocka.ponovnoZavrti()
             }
         }
