@@ -20,7 +20,13 @@ class Deck {
     }
     fun giveMeCard() : Card{
         val card = deckCards.random()
-        deckCards.remove(card)
+
+        removeGivenCard((card))
+
         return card
+    }
+
+    fun removeGivenCard(card:Card){
+        deckCards.remove(card)
     }
 }
